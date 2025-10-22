@@ -1,4 +1,4 @@
-# Windows-PKI-Setup | Active Directory Certificate Services (AD CS) Automation Toolkit
+# Active Directory Certificate Services (AD CS) Automation Toolkit
 
 ## 📖 Overview
 This repository contains a full suite of **PowerShell scripts** to automate the deployment, configuration, and management of **Microsoft Active Directory Certificate Services (AD CS)** for both **Root** and **Subordinate (Issuing)** Certificate Authorities.  
