@@ -49,23 +49,20 @@ Designed for enterprise environments, this toolkit ensures secure, consistent, a
 ### 📁 Root_CA
 | Script | Description |
 |---------|--------------|
-| **install_root-ca.ps1** | Installs and configures an **offline Root Certificate Authority**, including root key generation and certificate policy configuration. |
-| **configure_crl_aia_root.ps1** | Sets **CRL distribution points** and **AIA paths** for the Root CA, ensuring proper publication of revocation data. |
-| **backup_root-ca.ps1** | Automates Root CA private key, certificate, and configuration backup for offline storage. |
-| **publish_root-certificate.ps1** | Publishes the Root CA certificate to AD or shared folder for Sub CA enrollment. |
+| **1_ca-root-server-configuration_final.ps1** |  |
+| **1_ca-server_cert-req-submission_final.ps1** |  |
+| **2_ca-server_get-cert-status_final.ps1** |  |
+| **3_ca-server_revoke-issued-cert_final.ps1** |  |
 
 ---
 
 ### 📁 Sub_CA
 | Script | Description |
 |---------|--------------|
-| **install_sub-ca.ps1** | Installs and configures an **Issuing CA**, importing the Root CA certificate, and applying custom CA policy. |
-| **request_sub-ca_certificate.ps1** | Creates a **certificate signing request (CSR)** to be signed by the Root CA. |
-| **install_signed_sub-ca_certificate.ps1** | Imports and activates the signed Sub CA certificate from the Root CA. |
-| **configure_crl_aia_sub.ps1** | Configures the Sub CA’s **CRL and AIA** publication points. |
-| **configure_templates.ps1** | Enables, duplicates, and publishes custom **certificate templates** for users, computers, and services. |
-| **enable_autoenrollment.ps1** | Configures Group Policy and permissions for **certificate auto-enrollment** within the domain. |
-| **backup_sub-ca.ps1** | Performs automated backup of the Sub CA’s keys, database, and configuration. |
+| **1_ca-sub-server-configuration_final.ps1** |  |
+| **1_ca-server_cert-req-submission_final.ps1** |  |
+| **2_ca-server_get-cert-status_final.ps1** |  |
+| **3_ca-server_revoke-issued-cert_final.ps1** |  |
 
 ---
 
@@ -75,26 +72,44 @@ Typical execution sequence for setting up a new PKI hierarchy:
 
 ```powershell
 # Step 1: Offline Root CA Setup
-.\Root_CA\install_root-ca.ps1
-.\Root_CA\configure_crl_aia_root.ps1
-.\Root_CA\publish_root-certificate.ps1
-
-# Step 2: Online Subordinate CA Setup
-.\Sub_CA\install_sub-ca.ps1
-.\Sub_CA
-equest_sub-ca_certificate.ps1
-# -> Sign CSR on Root CA and import
-.\Sub_CA\install_signed_sub-ca_certificate.ps1
-.\Sub_CA\configure_crl_aia_sub.ps1
-
-# Step 3: Post-Setup Configuration
-.\Sub_CA\configure_templates.ps1
-.\Sub_CA\enable_autoenrollment.ps1
-
-# Step 4: Backup Procedures
-.\Root_CAackup_root-ca.ps1
-.\Sub_CAackup_sub-ca.ps1
+.\0_CA_Root_Initial-Setup\1_ca-root-server-configuration_final.ps1
 ```
+<img width="1024" height="524" alt="image" src="https://github.com/user-attachments/assets/2b17d651-c7d7-44dc-bc1a-9ded528c79b1" />
+<img width="1024" height="524" alt="image" src="https://github.com/user-attachments/assets/47c53fe5-429e-4990-a7af-34c21f92e0b9" />
+<img width="1024" height="524" alt="image" src="https://github.com/user-attachments/assets/f2ecbeef-176d-4f55-9853-1a50bed0f8d2" />
+
+```powershell
+# Step 2: Online Subordinate CA Setup
+.\0_CA_Sub_Initial-Setup\1_ca-sub-server-configuration_final.ps1
+```
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/8b01443e-5408-48f2-8071-2c7f6f905d01" />
+<img width="1024" height="529" alt="image" src="https://github.com/user-attachments/assets/de53a9dd-cefc-4084-b3e6-d435e7f84995" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/246beec5-e4dd-4138-a202-8eb05241efaf" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/5cff69f9-ee31-47f1-b892-f9ce8d8a6c70" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/fa6a4653-c0cd-4416-a423-dd014c280395" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/c112e470-d32a-4767-852e-7ffa356c91fa" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/d9ba6ed5-626d-46d4-a8e4-4232cc9ebeb1" />
+
+**Do not close the PowerShell window!**
+Copy the SubCA Cert-Request to the RootCA
+
+```powershell
+# Step 3: Issuing SubCA Request on RootCA
+.\1_CA_Managing\1_ca-server_cert-req-submission_final.ps1
+```
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/8f49c7da-869e-4596-9a02-73b021935204" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/a3a8e497-e4a4-41ab-ae2e-af860a951d82" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/0aa20ae7-aac3-4499-ac19-3d0b8fa67d24" />
+
+Copy the issued CRL and CRT on RootCA to 'C:\Windows\System32\certsrv\CertEnroll'
+
+**Continue on SubCA and press 'Enter'**
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/b90506d7-bec4-4d81-a71a-98c804d3246c" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/d81465f1-c2ca-4136-ad99-df5e9d8ad585" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/ac009d67-1c56-4b3f-8cb1-0ca99df57692" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/86f45c2f-3330-4448-bb2c-9d60da3fe058" />
+<img width="1024" height="530" alt="image" src="https://github.com/user-attachments/assets/e24f0f84-ced6-43d3-90a6-afa67a574f11" />
+<img width="239" height="110" alt="image" src="https://github.com/user-attachments/assets/ec41499b-b25e-4e4e-a66e-7d18c1e55440" />
 
 ---
 
