@@ -1,6 +1,6 @@
 :: 26.08.2024
-:: pscherling@eurofunk.com
-:: 
+:: Patrick Scherling
+:: https://github.com/PScherling
 :: 
 :: 
 :: Version 1.0
