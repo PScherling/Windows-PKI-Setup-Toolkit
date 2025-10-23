@@ -1,13 +1,30 @@
 <#
 .SYNOPSIS
-    
+    Submits and issues certificate requests on a Certificate Authority (CA).
+
 .DESCRIPTION
+    This PowerShell script automates the process of submitting pending certificate requests 
+    (.REQ files) to a Root or Subordinate Certificate Authority, issuing the corresponding certificates, 
+    and exporting the resulting certificate and chain files (.CER and .P7B).
+
+    The script lists available certificate request files from a predefined export directory (D:\Export), 
+    allows the user to select one for processing, and handles:
+        - Submitting the selected request to the CA.
+        - Issuing the pending request.
+        - Exporting the signed certificate and full certificate chain.
     
+    It provides detailed console feedback for each step, performs error handling, and ensures 
+    all certificate operations (submission, issuance, export) are completed successfully before exiting.
+
 .LINK
+    https://learn.microsoft.com/en-us/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority
+    https://learn.microsoft.com/en-us/powershell/module/pkiclient/certreq
+    https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil
+    https://github.com/PScherling
 
 .NOTES
-          FileName: ef-ca-server_cert-req-submission_final.ps1
-          Solution: 
+          FileName: ca-server_cert-req-submission_final.ps1
+          Solution: Root / Subordinate CA Management & Automation
           Author: Patrick Scherling
           Contact: @Patrick Scherling
           Primary: @Patrick Scherling
@@ -18,11 +35,14 @@
           Version - 0.1.0 - () - Publishing Version 1.
 		  
 		  To-Do:
-			- 
+			- Optional logging to include certificate details (serial number, subject, validity).
+            - Add support for alternative directories and automated selection.
 
 
 .Example
-
+    PS C:\> .\ca-server_cert-req-submission_final.ps1
+    Runs the interactive certificate request submission utility, allowing selection of a .REQ file 
+    from D:\Export, submission to the CA, issuance, and export of both .CER and .P7B files.
 #>
 # Version number
 $VersionNumber = "0.1.0"
