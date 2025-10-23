@@ -59,7 +59,7 @@ Designed for enterprise environments, this toolkit ensures secure, consistent, a
 ### 📁 Sub_CA
 | Script | Description |
 |---------|--------------|
-| **1_ca-sub-server-configuration_final.ps1** |  |
+| **1_ca-sub-server-configuration_final.ps1** | Provides a fully guided, automated setup process for preparing, installing, and configuring a subordinate CA server (Issuing CA) that is integrated into an existing PKI hierarchy with a Root CA. |
 | **1_ca-server_cert-req-submission_final.ps1** | Automates the process of submitting pending certificate requests (.REQ files) to a Root or Subordinate Certificate Authority. |
 | **2_ca-server_get-cert-status_final.ps1** | Automates the process of querying and parsing the local Certification Authority (CA) database to display a clear overview of all processed certificate requests. |
 | **3_ca-server_revoke-issued-cert_final.ps1** | Provides a guided and semi-automated way to revoke certificates that have been issued by a local or enterprise Certification Authority (CA). |
