@@ -147,10 +147,9 @@ C:\_it\0_CA_Sub_Initial-Setup\ca-sub-creation.log
 ## 👤 Author
 
 **Author:** Patrick Scherling  
-**Solution:** Active Directory Certificate Services (AD CS) Automation Toolkit  
 **Contact:** @Patrick Scherling  
 
 ---
 
-> ⚡ *“Automate. Secure. Trust.”*  
-> Part of Patrick Scherling’s IT automation suite for secure Windows Server PKI and Active Directory infrastructures.
+> ⚡ *“Automate. Standardize. Simplify.”*  
+> Part of Patrick Scherling’s IT automation suite for modern Windows Server infrastructure management.
