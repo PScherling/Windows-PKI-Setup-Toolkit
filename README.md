@@ -7,16 +7,21 @@ Designed for enterprise environments, this toolkit ensures secure, consistent, a
 
 ---
 
+## Coming Features
+- **[PSC-SConfig](https://github.com/PScherling/psc_sconfig)** integration
+
+---
+
 ## ✨ Key Features
-- 🧱 Automated setup for **Root CA** and **Subordinate CA**
-- ⚙️ Complete AD CS role installation and configuration
-- 🔁 Automated **CRL (Certificate Revocation List)** and **AIA/CDP path** setup
-- 🧩 Certificate template management and publication
-- 🗄️ Policy configuration (validity periods, renewal, CRL intervals)
-- 🧾 Logging and change tracking for compliance auditing
-- 🔒 Secure CA hierarchy with **offline Root CA** support
-- 🪪 Streamlined Sub CA enrollment from the Root CA
-- 🚀 Modular and reusable PowerShell scripts with parameterized logic
+- Automated setup for **Root CA** and **Subordinate CA**
+- Complete AD CS role installation and configuration
+- Automated **CRL (Certificate Revocation List)** and **AIA/CDP path** setup
+- Certificate template management and publication
+- Policy configuration (validity periods, renewal, CRL intervals)
+- Logging and change tracking for compliance auditing
+- Secure CA hierarchy with **offline Root CA** support
+- Streamlined Sub CA enrollment from the Root CA
+- Modular and reusable PowerShell scripts with parameterized logic
 
 ---
 
