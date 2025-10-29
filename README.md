@@ -7,7 +7,7 @@ Designed for enterprise environments, this toolkit ensures secure, consistent, a
 
 ---
 
-## Coming Features
+## 🧭 Coming Features
 - **[PSC-SConfig](https://github.com/PScherling/psc_sconfig)** integration
 
 ---
