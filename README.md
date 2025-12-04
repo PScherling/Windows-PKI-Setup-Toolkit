@@ -133,8 +133,8 @@ All scripts include built-in logging that records:
 
 Logs are stored under:
 ```
-C:\_it\0_CA_Root_Initial-Setup\ca-root-creation.log
-C:\_it\0_CA_Sub_Initial-Setup\ca-sub-creation.log
+C:\_psc\0_CA_Root_Initial-Setup\ca-root-creation.log
+C:\_psc\0_CA_Sub_Initial-Setup\ca-sub-creation.log
 
 ```
 
