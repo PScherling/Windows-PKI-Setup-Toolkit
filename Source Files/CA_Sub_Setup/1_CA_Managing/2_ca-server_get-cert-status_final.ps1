@@ -21,9 +21,9 @@
       - **Disposition / Status** (Issued, Revoked, Denied)
     - Summarizes all results in a formatted PowerShell output table
     - Color-codes results by status for improved readability:
-      - 🟩 **Green** – Issued
-      - 🟨 **Yellow** – Revoked
-      - 🟥 **Red** – Denied
+      - **Green** – Issued
+      - **Yellow** – Revoked
+      - **Red** – Denied
     - Displays a simple summary of all certificates processed
     - Optionally allows the administrator to export or review CA status via console logs
 
@@ -66,7 +66,7 @@
     Retrieves and lists all certificates from the CA database with their
     issuance state, validity dates, and serial numbers, displayed in color-coded format.
 
-    PS> powershell.exe -ExecutionPolicy Bypass -File "C:\_it\CA_Management\ca-server_get-cert-status_final.ps1"
+    PS> powershell.exe -ExecutionPolicy Bypass -File "C:\_psc\CA_Management\ca-server_get-cert-status_final.ps1"
     Executes the CA certificate status check script non-interactively 
     (for example, as part of a monitoring or audit job).
 #>
@@ -274,3 +274,4 @@ $SerialNumber = @()
 $StartDate = @()
 $EndDate = @()
 $Status = @()
+
