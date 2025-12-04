@@ -86,7 +86,7 @@
     and allows the administrator to select one for revocation, 
     specifying the revocation reason interactively.
 
-    PS> powershell.exe -ExecutionPolicy Bypass -File "C:\_it\CA_Management\ca-server_revoke-issued-certificates.ps1"
+    PS> powershell.exe -ExecutionPolicy Bypass -File "C:\_psc\CA_Management\ca-server_revoke-issued-certificates.ps1"
     Executes the certificate revocation process non-interactively 
     (e.g., as part of an administrative maintenance job or during CA cleanup).
 #>
@@ -405,4 +405,5 @@ $SumOfIssuedCerts = 0
 $2Darray = @()
 $ArrayLength = ""
 $SNtoRevoke = ""
+
 $Reason = ""
