@@ -17,7 +17,7 @@
     - Guidance for importing the signed certificate chain (.P7B) from the Root CA.
     - Final CA service activation and cleanup of temporary setup data.
 
-    All progress and actions are logged for traceability in the defined log file (default: `C:\_it\0_CA_Sub_Initial-Setup\ca-sub-creation.log`).
+    All progress and actions are logged for traceability in the defined log file (default: `C:\_psc\0_CA_Sub_Initial-Setup\ca-sub-creation.log`).
     The script is designed to be fault-tolerant and will revert configuration steps in case of errors or manual aborts.
 
 .LINK
@@ -56,9 +56,9 @@
 $VersionNumber = "0.1.0"
 
 # Log file path
-$logFile = "C:\_it\0_CA_Sub_Initial-Setup\ca-sub-creation.log"
+$logFile = "C:\_psc\0_CA_Sub_Initial-Setup\ca-sub-creation.log"
 if(-not $logfile){
-    New-Item -Name "ca-sub-creation.log" -Path "C:\_it\0_CA_Sub_Initial-Setup" -ItemType "File"
+    New-Item -Name "ca-sub-creation.log" -Path "C:\_psc\0_CA_Sub_Initial-Setup" -ItemType "File"
 }
 
 # Function to log messages with timestamps
@@ -1538,7 +1538,7 @@ Install Results:
 			
 			try{
 				
-				$GetFiles = Get-ChildItem -File "C:\_it\CA_Sub_Setup\*" -Name -Include *.bat
+				$GetFiles = Get-ChildItem -File "C:\_psc\CA_Sub_Setup\*" -Name -Include *.bat
 				$SumOfFiles = $GetFiles.Count
 				$LinkPath = "" 
 				$TargetPath = ""
@@ -1551,7 +1551,7 @@ Install Results:
 					
 					Write-Log " Crating Desktoplink 'C:\Users\Public\Desktop\$($FileName).lnk'."
 					$LinkPath = "C:\Users\Public\Desktop\$FileName.lnk"
-					$TargetPath = "C:\_it\CA_Sub_Setup\$File"
+					$TargetPath = "C:\_psc\CA_Sub_Setup\$File"
 					
 					new-item -ItemType SymbolicLink -Path $LinkPath -Target $TargetPath
 				}
@@ -1743,4 +1743,5 @@ elseif($response -eq "a")
 	Write-Host "Exiting Setup..."
 	Write-Log " Exiting Setup..."
 	exit
+
 }
