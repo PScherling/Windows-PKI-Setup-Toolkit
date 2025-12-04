@@ -33,11 +33,11 @@
     - Copies generated `.crl` and `.crt` files to a shared export folder (`D:\Export`)
     - Creates symbolic desktop links for CA management tools located in:
       ```
-      C:\_it\CA_Root_Setup\
+      C:\_psc\CA_Root_Setup\
       ```
     - Logs all actions, warnings, and errors to:
       ```
-      C:\_it\0_CA_Root_Initial-Setup\ca-root-creation.log
+      C:\_psc\0_CA_Root_Initial-Setup\ca-root-creation.log
       ```
 
     This script serves as the **first stage** in a multi-tier PKI deployment:
@@ -83,7 +83,7 @@
     Prompts for domain name and SubCA hostname, installs and configures 
     the Root CA, and applies all recommended security and validity parameters.
 
-    PS> powershell.exe -ExecutionPolicy Bypass -File "C:\_it\0_CA_Root_Initial-Setup\ca-root-server-configuration.ps1"
+    PS> powershell.exe -ExecutionPolicy Bypass -File "C:\_psc\0_CA_Root_Initial-Setup\ca-root-server-configuration.ps1"
     Runs the Root CA setup automatically as part of a scripted PKI deployment, 
     logging all actions and creating the CA export and publication structure.
 
@@ -93,9 +93,9 @@
 $VersionNumber = "0.1.0"
 
 # Log file path
-$logFile = "C:\_it\0_CA_Root_Initial-Setup\ca-root-creation.log"
+$logFile = "C:\_psc\0_CA_Root_Initial-Setup\ca-root-creation.log"
 if(-not $logfile){
-    New-Item -Name "ca-root-creation.log" -Path "C:\_it\0_CA_Root_Initial-Setup" -ItemType "File"
+    New-Item -Name "ca-root-creation.log" -Path "C:\_psc\0_CA_Root_Initial-Setup" -ItemType "File"
 }
 
 # Function to log messages with timestamps
@@ -500,7 +500,7 @@ if ($response -eq "y") {
 	
 	try{
 				
-		$GetFiles = Get-ChildItem -File "C:\_it\CA_Root_Setup\*" -Name -Include *.bat
+		$GetFiles = Get-ChildItem -File "C:\_psc\CA_Root_Setup\*" -Name -Include *.bat
 		$SumOfFiles = $GetFiles.Count
 		$LinkPath = "" 
 		$TargetPath = ""
@@ -514,7 +514,7 @@ if ($response -eq "y") {
 			Write-Log " Crating 'C:\Users\Public\Desktop\$FileName.lnk'."
 
 			$LinkPath = "C:\Users\Public\Desktop\$FileName.lnk"
-			$TargetPath = "C:\_it\CA_Root_Setup\$File"
+			$TargetPath = "C:\_psc\CA_Root_Setup\$File"
 			
 			new-item -ItemType SymbolicLink -Path $LinkPath -Target $TargetPath
 		}
@@ -558,3 +558,4 @@ if ($response -eq "y") {
 	$CRLDPUrl = ""
 	$AIAUrl = ""
 }
+
