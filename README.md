@@ -1,3 +1,8 @@
+![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows-blue)
+![Audience](https://img.shields.io/badge/Audience-Enterprise-informational)
+![Maintenance](https://img.shields.io/badge/Maintained-Yes-success)
+
 # Active Directory Certificate Services (AD CS) Automation Toolkit
 
 ## 📖 Overview
